@@ -8,8 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.moloko.ecom_proj.model.Product;
 import com.moloko.ecom_proj.service.ProductService;
@@ -41,6 +44,20 @@ public class ProductController
 		else
 		{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	@PostMapping("/product")
+	public ResponseEntity<?> addProduct(@RequestPart Product product, @RequestPart MultipartFile imageFile)
+	{
+		try 
+		{
+			System.out.println(product);
+			Product product1 = service.addProduct(product, imageFile);
+			return new ResponseEntity<>(product1, HttpStatus.CREATED);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 }

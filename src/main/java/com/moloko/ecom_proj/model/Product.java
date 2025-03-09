@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -31,10 +32,17 @@ public class Product
 	private String brand;
 	private BigDecimal price;
 	private String category;
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+
 	private Date releaseDate;
 	private boolean available;
 	private int quantity;
+	
+	private String imageName;
+
+	private String imageType;
+	
+	@Lob //LargeObject
+	private byte[] imageData;
 	
 	public Product()
 	{
@@ -114,6 +122,25 @@ public class Product
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", brand=" + brand + ", price="
 				+ price + ", category=" + category + ", releaseDate=" + releaseDate + ", available=" + available
 				+ ", quantity=" + quantity + "]";
+	}
+
+	public String getImageName() {
+		return imageName;
+	}
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+	public String getImageType() {
+		return imageType;
+	}
+	public void setImageType(String imageType) {
+		this.imageType = imageType;
+	}
+	public byte[] getImageData() {
+		return imageData;
+	}
+	public void setImageData(byte[] imageData) {
+		this.imageData = imageData;
 	}
 	
 	
