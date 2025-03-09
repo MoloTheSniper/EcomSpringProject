@@ -16,6 +16,7 @@ public class ProductService
 	
 	public List<Product> getAllProducts() {
 		
+		System.out.println(repo.findAll());
 		return repo.findAll();
 	}
 
