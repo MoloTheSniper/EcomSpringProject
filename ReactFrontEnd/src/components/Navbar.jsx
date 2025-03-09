@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Home from "./Home"
 import axios from "axios";
+// import { json } from "react-router-dom";
+// import { BiSunFill, BiMoon } from "react-icons/bi";
 
 const Navbar = ({ onSelectCategory, onSearch }) => {
   const getInitialTheme = () => {
@@ -75,7 +77,7 @@ const Navbar = ({ onSelectCategory, onSearch }) => {
       <header>
         <nav className="navbar navbar-expand-lg fixed-top">
           <div className="container-fluid">
-            <a className="navbar-brand" href="http://localhost:5173">
+            <a className="navbar-brand" href="http://localhost:5173/">
               Moloko
             </a>
             <button
