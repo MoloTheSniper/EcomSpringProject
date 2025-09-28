@@ -28,17 +28,15 @@ A full-stack e-commerce application with **Spring Boot (Java)** backend and **Re
 1. **Clone the repository**
 
 ```bash
-git clone <your-repo-url>
-cd ecom-proj/backend
+git clone https://github.com/MoloTheSniper/EcomSpringProject.git
 ```
 
 2. **Set JDK in IntelliJ**
 
 * **File → Project Structure → Project**
 
-  * Project SDK: 17 (or 21)
-  * Language level: match SDK
-* **Modules → Dependencies → Module SDK**: same SDK
+  * Project SDK: 21
+
 
 3. **Run the backend**
 
@@ -46,8 +44,6 @@ cd ecom-proj/backend
 # Maven
 ./mvnw spring-boot:run
 
-# Gradle
-./gradlew bootRun
 ```
 
 * Backend runs at: `http://localhost:8080`
